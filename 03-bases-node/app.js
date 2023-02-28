@@ -1,12 +1,12 @@
+const { crearArchivo } = require('./helpers/multiplicar.js')
+const argv = require('./config/yargs.js');
+
 console.clear();
 
-let base = 5;
+// La forma clasica de ver los argumentos del comando desdce consola
+// console.log( process.argv );
+// console.log( argv );
 
-console.log('========================')
-console.log(`      Tabla del ${base}`)
-console.log('========================')
-
-
-for(let i = 1; i<11; i++){
-    console.log(`${base} x ${i} = ${base*i}` );
-}
+crearArchivo(argv.listar, argv.hasta , argv.base)
+    .then( nombreArchivo => console.log(nombreArchivo, 'creado'))
+    .catch( err => console.log(err));
